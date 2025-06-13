@@ -11,6 +11,7 @@ const collection = () => {
   const [filterProducts,setFilterProducts] = useState([]);
   const [category,setCategory] = useState([])
   const [subCategory,setSubCategory] = useState([])
+  const [sortType,setSortType] = useState('relavent')
 
   const toggleCategory = (e) => {
     if(category.includes(e.target.value)){
@@ -40,14 +41,40 @@ const collection = () => {
     setFilterProducts(productsCopy);
   }
 
-  useEffect(()=>{
-    setFilterProducts(products);
-  },[])
+  // useEffect(()=>{
+  //   setFilterProducts(products);
+  // },[])
+
+
+  // making function of sort product
+  // useEffect(()=>{
+  //   setFilterProducts(products);
+  // },[])
+
+  const sortProduct = () => {
+    
+    let fpCopy = filterProducts.slice();
+
+    switch(sortType){
+      case 'low-high':
+      setFilterProducts(fpCopy.sort((a,b) => (a.price - b.price)));
+      break;
+      case 'high-low':
+        setFilterProducts(fpCopy.sort((a,b)=>(b.price - a.price)));
+        break;
+      default :
+      applyFilter();
+      break;
+    }
+  }
 
   useEffect(()=>{
     applyFilter();
   },[category,subCategory])
 
+  useEffect(() => {
+    sortProduct();
+  },[sortType])
   
   // use to display filter function
   // useEffect(()=>{
@@ -84,13 +111,13 @@ const collection = () => {
           <p className='mb-3 text-sm font-medium'>Type</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
               <p className='flex gap-2'>
-                <input className='w-3' type="checkbox" value={'Top-wear'} onChange={toggleSubCategory}/>Top-wear
+                <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory}/>Topwear
               </p>
               <p className='flex gap-2'>
-                <input className='w-3' type="checkbox" value={'Bottom-wear'} onChange={toggleSubCategory}/>Bottom-wear
+                <input className='w-3' type="checkbox" value={'Bottomwear'} onChange={toggleSubCategory}/>Bottomwear
               </p>
               <p className='flex gap-2'>
-                <input className='w-3' type="checkbox" value={'Winter-wear'} onChange={toggleSubCategory}/>Winter-wear
+                <input className='w-3' type="checkbox" value={'Winterwear'} onChange={toggleSubCategory}/>Winterwear
               </p>
           </div>
         </div>
@@ -101,10 +128,10 @@ const collection = () => {
         <div className='flex justify-between sm:text-2xl mb-4 text-base '>
           <Title text1={'ALL'} text2={'COLLECTION'}/>
           {/* product sort funtion */}
-          <select className='border-2 border-gray-300 text-sm px-2'>
-          <option value="Relavent">Sort by : Relavent</option>
-          <option value="High-Low">Sort by : Low to High</option>
-          <option value="Low-High">Sort by : High to Low</option>
+          <select onChange={(e) => setSortType(e.target.value)} className='border-2 border-gray-300 text-sm px-2'>
+          <option value="relavent">Sort by : Relavent</option>
+          <option value="low-high">Sort by : Low to High </option>
+          <option value="high-low">Sort by : High to Low </option>
           </select>
         </div>
         {/* mapping products to collection page */}

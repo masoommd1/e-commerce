@@ -28,6 +28,13 @@ const order = () => {
                 <p className='mt-2'>Date: <span className='text-gray-400'>25/06/2025</span></p>
               </div>
             </div>
+            <div className='md:w-1/2 flex justify-between'>
+            <div className='flex items-center gap-2'>
+            <p className='rounded-full bg-green-500 min-w-2 h-2 '></p>
+            <p className='text-sm md:text-base '>Ready to Ship</p>
+            </div>
+            <button className='border py-2 px-4 text-sm rounded-sm'>Track Order</button>
+            </div>
             </div> 
           ))
          }

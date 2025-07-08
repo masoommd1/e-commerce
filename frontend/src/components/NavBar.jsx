@@ -5,13 +5,13 @@ import { ShopContext } from '../context/ShopContext'
 
 const NavBar = () => {
 
-  const {setShowSearch , getCartCount, navigate, token , setToken , setCartItmes} = useContext(ShopContext)
+  const {setShowSearch , getCartCount, navigate, token , setToken , setCartItems} = useContext(ShopContext)
 
   const logout = () => {
     navigate('/login')
     localStorage.removeItem('token');
     setToken('')
-    setCartItmes({})
+    setCartItems({})
   } 
   return (
     <div className='flex items-center justify-between py-5 font-medium'>

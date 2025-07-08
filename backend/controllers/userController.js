@@ -127,7 +127,7 @@ const adminLogin = async (req,res) => {
 
    console.log(error)
    res.json({success:false,message:error.message}) 
-   
+    
   }
 }
 

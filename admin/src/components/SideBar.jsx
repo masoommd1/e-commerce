@@ -24,7 +24,7 @@ const SideBar = () => {
             </NavLink>
             
             <NavLink 
-                to="/Order" 
+                to="/orders" 
                 className="flex items-center gap-3 border-l border-t border-b border-gray-300 px-3 
                            py-2 rounded-l hover:bg-gray-100 transition-colors">
                 <img className='w-5 h-5' src={assets.order_icon} alt="" />

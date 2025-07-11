@@ -38,6 +38,10 @@ const NavBar = () => {
 
         <div className='flex items-center gap-6'>
           <img src={assets.search_icon} alt="image not found "  onClick={() => setShowSearch(prev => !prev)} className='w-5 cursor-pointer' />
+          <Link to='/cart' className='relative'>
+          <img src={assets.cart_icon} className='w-5 h-6' alt="" />
+          <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square  rounded-full text-[8px]'>{getCartCount()}</p>
+          </Link>
           <div className='group relative'>
 
             <img onClick={()=> token ? null : navigate('/login')} src={assets.profile_icon} alt="image not found"  className='w-5 cursor-pointer'/>
@@ -54,10 +58,10 @@ const NavBar = () => {
             </div>
            }
           </div>
-          <Link to='/cart' className='relative'>
+          {/* <Link to='/cart' className='relative'>
           <img src={assets.cart_icon} className='w-5 h-6' alt="" />
           <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square  rounded-full text-[8px]'>{getCartCount()}</p>
-          </Link>
+          </Link> */}
         </div>
     </div>
   )

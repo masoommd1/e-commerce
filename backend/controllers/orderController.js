@@ -10,7 +10,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 // global variables 
 
-const currency = 'usd'
+const currency = 'npr'
 const deliveryCharges = 150;
 
 

@@ -28,5 +28,6 @@ orderRouter.post('/userorders',authUser,userOrders)
 // verify payment
 
 orderRouter.post('/verifyStripe',authUser,verifyStripe)
+orderRouter.post('/esewa', authUser, placeOrderEsewa);
 export default orderRouter;
 

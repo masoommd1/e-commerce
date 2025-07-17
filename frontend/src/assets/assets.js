@@ -57,6 +57,7 @@ import p_img52 from './p_img52.png'
 
 import logo from './logo.png'
 import logo1 from './logo1.png'
+import esewa from './esewa.png'
 import hero_img from './hero_img.png'
 import hero3 from './hero3.jpeg'
 import cart_icon from './cart_icon.png'
@@ -81,6 +82,7 @@ export const assets = {
     logo1,
     hero_img,
     hero3,
+    esewa,
     cart_icon,
     dropdown_icon,
     exchange_icon,
